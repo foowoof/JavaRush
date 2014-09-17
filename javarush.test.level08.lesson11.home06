@@ -1,0 +1,95 @@
+package com.javarush.test.level08.lesson11.home06;
+
+/* Вся семья в сборе
+1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).
+2. Создай объекты и заполни их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое детей.
+3. Вывести все объекты Human на экран.
+*/
+
+import java.util.ArrayList;
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        //Это надо просто запомнить и не париться с созданием массивов
+        Human chil1 = new Human("Egor", true, 19);
+        Human chil2 = new Human("Katy", false, 22);
+        Human chil3 = new Human("Boris", true, 17);
+
+        ArrayList<Human> childrens = new ArrayList<Human>();
+        childrens.add(chil1);
+        childrens.add(chil2);
+        childrens.add(chil3);
+
+        Human father = new Human("Vova", true, 35, childrens);
+        Human mother = new Human("Luba", false, 30, childrens);
+
+        ArrayList<Human> oldChildren1 = new ArrayList<Human>();
+        ArrayList<Human> oldChildren2 = new ArrayList<Human>();
+        oldChildren1.add(father);
+        oldChildren2.add(mother);
+
+        Human grandpa1 = new Human("Stas", true, 70, oldChildren1);
+        Human grandma1 = new Human("Vika", false, 71, oldChildren1);
+        Human grandpa2 = new Human("Petr", true, 75, oldChildren2);
+        Human grandma2 = new Human("Fecla", false, 69, oldChildren2);
+
+        System.out.println(grandpa1);
+        System.out.println(grandpa2);
+        System.out.println(grandma1);
+        System.out.println(grandma2);
+        System.out.println(father);
+        System.out.println(mother);
+        System.out.println(chil1);
+        System.out.println(chil2);
+        System.out.println(chil3);
+    }
+
+    public static class Human
+    {
+        //Написать тут ваш код
+        String name;
+        boolean sex;
+        int age;
+        ArrayList<Human> children;
+
+        public Human(String name, boolean sex, int age)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.children = new ArrayList<Human>();
+        }
+        public Human(String name, boolean sex, int age, ArrayList<Human> children)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.children = children;
+        }
+
+        public String toString()
+        {
+            String text = "";
+            text += "Имя: " + this.name;
+            text += ", пол: " + (this.sex ? "мужской" : "женский");
+            text += ", возраст: " + this.age;
+
+            int childCount = this.children.size();
+            if (childCount > 0)
+            {
+                text += ", дети: "+this.children.get(0).name;
+
+                for (int i = 1; i < childCount; i++)
+                {
+                    Human child = this.children.get(i);
+                    text += ", "+child.name;
+                }
+            }
+
+            return text;
+        }
+    }
+
+}
