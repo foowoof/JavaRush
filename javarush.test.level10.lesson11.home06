@@ -1,0 +1,101 @@
+package com.javarush.test.level10.lesson11.home06;
+
+/* Конструкторы класса Human
+Напиши класс Human с 6 полями. Придумай и реализуй 10 различных конструкторов для него. Каждый конструктор должен иметь смысл.
+*/
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        Human a = new Human("Иван", "Иванов", 20, true, 60, 170);
+        Human b = new Human("Сергей");
+        Human c = new Human("Роман", "Иванов");
+        Human d = new Human( 20, true, 60, 170);
+        Human e = new Human(20, false);
+        Human f = new Human(20);
+        Human g = new Human("Иван", "Иванов", 20, true, 60);
+        Human h = new Human("Иван", "Иванов", 20, 170);
+        Human i = new Human("Иванов", 20, true, 60, 170);
+        Human j = new Human("Иван", true, 60, 170);
+    }
+
+    public static class Human
+    {
+        //напишите тут ваши переменные и конструкторы
+        String name;
+        String lastName;
+        int age;
+        boolean geter;
+        int weight;
+        int hight;
+
+        public Human(String name, String lastName, int age, boolean geter, int weight, int hight)
+        {
+            this.name = name;
+            this.lastName = lastName;
+            this.age = age;
+            this.geter = geter;
+            this.weight = weight;
+            this.hight = hight;
+        }
+        public Human(String name)
+        {
+            this.name = name;
+        }
+        public Human(String name, String lastName)
+        {
+            this.name = name;
+            this.lastName = lastName;
+        }
+        public Human(int age, boolean geter, int weight, int hight)
+        {
+            this.age = age;
+            this.geter = geter;
+            this.weight = weight;
+            this.hight = hight;
+        }
+        public Human(int age, boolean geter)
+        {
+            this.age = age;
+            this.geter = geter;
+        }
+        public Human(int age)
+        {
+            this.age = age;
+        }
+        public Human(String name, String lastName, int age, boolean geter, int weight)
+        {
+            this.name = name;
+            this.lastName = lastName;
+            this.age = age;
+            this.geter = geter;
+            this.weight = weight;
+        }
+        public Human(String name, String lastName, int age, int hight)
+        {
+            this.name = name;
+            this.lastName = lastName;
+            this.age = age;
+
+            this.hight = hight;
+        }
+        public Human(String lastName, int age, boolean geter, int weight, int hight)
+        {
+
+            this.lastName = lastName;
+            this.age = age;
+            this.geter = geter;
+            this.weight = weight;
+            this.hight = hight;
+        }
+        public Human(String name, boolean geter, int weight, int hight)
+        {
+            this.name = name;
+            this.geter = geter;
+            this.weight = weight;
+            this.hight = hight;
+        }
+    }
+
+}
