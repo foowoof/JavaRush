@@ -1,0 +1,44 @@
+package ...;
+
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by ... on 08.09.2014.
+ */
+public class Manager {
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                SimpleFrame frame = new SimpleFrame();
+                frame.setTitle("SizedFrame");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+            }
+        });
+    }
+}
+    class SimpleFrame extends JFrame
+    {
+
+        public SimpleFrame()
+        {
+            //получаем размеры экрана
+            Toolkit kit = Toolkit.getDefaultToolkit();
+            Dimension screenSize = kit.getScreenSize();
+            int screenWidth = screenSize.width;
+            int screenHeight = screenSize.height;
+
+            //задаем ширину и высоту фрейма, платформа сама выбирает месторасположение
+            setSize(screenWidth / 2, screenHeight / 2);
+            setLocationByPlatform(true);
+
+            //задаем пиктограмму
+            Image img = new ImageIcon("icon.gif").getImage();
+            setIconImage(img);
+        }
+    }
+
+
